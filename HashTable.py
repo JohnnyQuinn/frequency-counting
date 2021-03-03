@@ -16,8 +16,8 @@ class HashTable:
     array = [] 
 
     for i in range(size):
-      i+1
       array.append(LinkedList())
+      i+1
     
     return array
       
@@ -28,7 +28,7 @@ class HashTable:
   def hash_func(self, key):
     size = self.size
 
-    index = key % size
+    index = len(key) % size
 
     return index
     
@@ -40,7 +40,7 @@ class HashTable:
   # check if there is a Node with the same key in the table already.
 
   def insert(self, key, value):
-    index = self.hash_func(key)
+    index = self.hash_func(key) 
 
     self.arr[index].append(
       {

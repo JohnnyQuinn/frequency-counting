@@ -21,16 +21,19 @@ class LinkedList:
 
     while current != None and not found:
 
-      if current.data == item:
+      if current.data[0] == item:
         found = True
       else:
         current = current.next
         counter += 1
 
     if found:
-      return counter
+      # return counter
+      new_tuple = (current.data[0], current.data[1]+1)
+      current.data = new_tuple
     else:
       return -1
+
 
 
 
@@ -47,12 +50,22 @@ class LinkedList:
 
 
   def print_nodes(self):
+    # current = self.head
+    
+    # if current == None:
+    #   pass
+    # else:
+    #   for i in range(self.length()):
+    #     print(f'# {current.data[0]}: {current.data[1]}\n')
+    #     current = current.next
+    #     i+1
+    
     current = self.head
     
     if current == None:
       print('The linked list is empty.')
     else:
       for i in range(self.length()):
-        print(f'# {current.data.keys()}: {current.data.values()}')
+        print(f'# {current.data[0]}: {current.data[1]}')
         current = current.next
-        i+1
+    

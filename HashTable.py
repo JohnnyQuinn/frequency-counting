@@ -42,11 +42,9 @@ class HashTable:
   def insert(self, key, value):
     index = self.hash_func(key) 
 
-    self.arr[index].append(
-      {
-        key: value
-      }
-    )
+    if self.arr[index].find(key) == -1:
+      self.arr[index].append((key, value))
+
 
   # 4️⃣ TODO: Complete the print_key_values method.
 
